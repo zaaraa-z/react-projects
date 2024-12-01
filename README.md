@@ -14,5 +14,4 @@ React.js
 
 ## Contact
 
-zamanian.zahra@gmail.com  
 https://www.linkedin.com/in/zahra-zamanian/
