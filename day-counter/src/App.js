@@ -18,7 +18,7 @@ export default function App() {
     setStep((s) => s + 1);
   }
   function handleStepMinus() {
-    setStep((s) => s - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
   function handleCountAdd() {
     setCount((c) => c + step);
@@ -64,6 +64,20 @@ export default function App() {
       </div>
 
       <div className='message'>
+        {/* option 1: issue is even for > 1 the word is days (plural) */}
+        {/* <h3>
+          <span>
+            {count === 0
+              ? 'Today is '
+              : count > 0
+              ? `${count} days from today is `
+              : `${Math.abs(count)} days ago was `}
+          </span>
+          <br />
+          <span className='colored'>{formatDate(resultDate)}</span>
+        </h3> */}
+
+        {/* option 2: */}
         {count === 0 && (
           <h3>
             Today is <span className='colored'>{formatDate(resultDate)}</span>
