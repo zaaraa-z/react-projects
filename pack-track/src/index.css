@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+/* 86b4bc */
+
+body {
+  font-size: 2.4rem;
+  color: rgb(49, 47, 47);
+  font-family: 'Quicksand';
+  font-weight: 500;
+}
+
+button,
+select,
+input {
+  background-color: #ededed;
+  color: #132531;
+  font-family: inherit;
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem 4rem;
+  margin: 0 7px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.banner-container {
+  text-align: center;
+  background-color: #038198;
+  color: rgb(253, 253, 253);
+  padding: 5rem 0;
+}
+.banner-container h1 {
+  font-size: 6rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.banner-container h2 {
+  font-size: 2rem;
+}
+
+.form-container {
+  background-color: #e9aafa;
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.form-container button {
+  background-color: #038198;
+  color: white;
+}
+
+.list-container {
+  border: #043e48 1px dashed;
+  margin: 4rem;
+  padding: 30px;
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+}
+.list-container ul {
+  list-style: none;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  justify-content: center;
+  align-content: start;
+}
+.list-container li {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 2rem;
+}
+.list-container li button {
+  font-family: cursive;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  height: 27px;
+  width: 27px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 0;
+  transform: translateY(2px);
+}
+
+input[type='checkbox'] {
+  height: 2.5rem;
+  width: 2.5rem;
+  accent-color: #b63bd8;
+}
+
+.status-container {
+  background-color: #e5ffd4;
+  text-align: center;
+  font-weight: 700;
+  padding: 3.2rem 0;
+}
