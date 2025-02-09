@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const initialItems = [
   { id: 1, desc: 'medicine', quantity: 10, packed: false },
   { id: 2, desc: 'jacket', quantity: 2, packed: true },
@@ -37,15 +39,28 @@ function Banner() {
 }
 
 function Form() {
+  const [desc, setDesc] = useState(''),
+    [quantity, setQuantity] = useState(1);
+
   function handleAdd(e) {
     e.preventDefault();
+
+    if (!desc) return;
+
+    const newItem = { desc, quantity, packed: false, id: Date.now() };
+
+    setDesc('');
+    setQuantity(1);
   }
 
   return (
     <div className='form-container'>
       <h4>So, what we need for our trip?</h4>
       <form onSubmit={handleAdd}>
-        <select>
+        <select
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+        >
           {/* create an array of number from 1 to 20, and then map through them: */}
           {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
             <option value={num} key={num}>
@@ -53,8 +68,13 @@ function Form() {
             </option>
           ))}
         </select>
-        <input type='text' placeholder='Enter the item ...' />
-        <button type='submit'>Add</button>
+        <input
+          type='text'
+          placeholder='Enter the item ...'
+          value={desc}
+          onChange={(e) => setDesc(e.target.value)}
+        />
+        <button>Add</button>
       </form>
     </div>
   );
@@ -72,22 +92,22 @@ function List() {
   );
 }
 
-function Status() {
-  return (
-    <footer className='status-container'>
-      Z% packecd (You have packed X items - Y items more to go!)
-    </footer>
-  );
-}
-
 function ListItem({ item }) {
   return (
     <li>
       <input type='checkbox' />
       <span style={item.packed ? { textDecoration: 'line-through' } : {}}>
-        {item.quantity} {item.desc}
+        ({item.quantity}) {item.desc}
       </span>
       <button title='Remove item'>X</button>
     </li>
+  );
+}
+
+function Status() {
+  return (
+    <footer className='status-container'>
+      Z% packecd (You have packed X items - Y items more to go!)
+    </footer>
   );
 }
